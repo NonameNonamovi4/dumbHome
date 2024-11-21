@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Alerts{% endblock %}
+
+{% block content %}
+
+<link type="text/css" href="{% static 'alerts/css/alerts_styles.css' %}" rel="stylesheet" />
+
+<h1>Alerts</h1>
+<ul class = alerts>
+    {% for alert in alerts %}
+    <li>
+        {{ alert.type }}: {{ alert.message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

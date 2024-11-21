@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Temperature Control{% endblock %}
+{% block content %}
+<head>
+	<link type="text/css" href="{% static 'temperature/css/temperature_styles.css' %}" rel="stylesheet" />
+    <script>
+        function updateSliderValue(value) {
+            document.getElementById('slider-value').textContent = `${value}°C`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Set Temperature</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.value }}
+        <span id="slider-value">{{ temperature.value }}°C</span>
+        <button type="submit">Save</button>
+    </form>
+</body>
+{% endblock %}

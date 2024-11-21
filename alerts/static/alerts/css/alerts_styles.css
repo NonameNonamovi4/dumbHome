@@ -1,0 +1,25 @@
+.alerts {
+  list-style-type: none; /* Removes default bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.alerts li {
+  border: 1px solid #ccc; /* Adds a border around each alert */
+  background-color: #f9f9f9; /* Light background for each alert */
+  padding: 15px; /* Adds spacing inside each alert block */
+  margin: 10px 0; /* Adds space between alerts */
+  border-radius: 5px; /* Optional: rounded corners */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+.alerts li .alert-type {
+  font-weight: bold; /* Emphasizes the alert type */
+  color: #333; /* Ensures readability for the type */
+}
+
+.alerts li .alert-message {
+  display: block; /* Keeps message on a separate line */
+  margin-top: 5px; /* Adds spacing between type and message */
+  color: #555; /* Adjusts the message text color */
+}

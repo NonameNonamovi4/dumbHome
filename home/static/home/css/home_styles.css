@@ -1,0 +1,14 @@
+.overview {
+  list-style-type: none; /* Removes default bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.overview li {
+  border: 1px solid #ccc; /* Adds a border around each item */
+  background-color: #f9f9f9; /* Light background for each item */
+  padding: 15px; /* Adds spacing inside each item block */
+  margin: 10px 0; /* Adds space between items */
+  border-radius: 5px; /* Optional: rounded corners */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}

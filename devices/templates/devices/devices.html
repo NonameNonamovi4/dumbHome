@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Devices{% endblock %}
+
+{% block content %}
+    <link type="text/css" href="{% static 'devices/css/devices_styles.css' %}" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <h2>Devices</h2>
+
+    {% for device in devices %}
+    <div>
+        <h3>{{ device.name }}</h3>
+        <label class="switch">
+            <input
+                type="checkbox"
+                data-id="{{ device.id }}"
+                {% if device.is_on %}checked{% endif %}>
+            <span class="slider round"></span>
+        </label>
+    </div>
+    {% endfor %}
+
+    <script>
+        $(document).ready(function() {
+            $('input[type="checkbox"]').change(function() {
+                const deviceId = $(this).data('id');
+                const isOn = this.checked;
+
+                $.post("{% url 'toggle_device' %}", {
+                    id: deviceId,
+                    is_on: isOn,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                }, function(response) {
+                    if (response.status !== 'success') {
+                        alert('Error toggling device: ' + response.message);
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

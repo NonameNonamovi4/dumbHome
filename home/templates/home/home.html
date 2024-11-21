@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<link type="text/css" href="{% static 'home/css/home_styles.css' %}" rel="stylesheet" />
+<img src="https://designerapp.officeapps.live.com/designerapp/document.ashx?path=/9e03c9b3-d6d4-4f47-858c-581c1f032275/DallEGeneratedImages/dalle-a2388242-b26e-40d6-8880-57b3d883cbd00251670163323095053500.jpg&dcHint=WestEurope&fileToken=404102df-d2f2-451b-80ba-437fe498128e" alt="HTML5 Icon" style="float:left;width:128px;height:128px;">
+<h1>Welcome to Your Dumb Home</h1>
+<p>Manage your home non-efficiently and don't stay updated with non-real-time data.</p>
+
+<div style="margin-top: 40px;">
+    <h2>System Overview</h2>
+    <ul class="overview">
+        <li>Active Alerts: 3</li>
+        <li>Connected Devices: 3</li>
+        <li>Cameras Online: 0</li>
+        <li>Current Temperature: {{ current_temp }}°C</li>
+    </ul>
+</div>
+
+<div style="margin-top: 20px;">
+    <h2>Recent Activity</h2>
+    <ul class="overview">
+        {% for log in recent_logs %}
+        <li>{{ log }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
